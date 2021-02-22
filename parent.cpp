@@ -19,7 +19,7 @@ int status;
 char* starting_pos = argv[1];
 char* interval = argv[2];
 char* name = argv[0];
-argv[0] = "child";
+
 pid_t child_pid;
 
 
@@ -30,7 +30,7 @@ do {
 	 	
         char *argV[] = {name, starting_pos, interval, (char *) 0};
 		int pid = -1;	
-
+	const char child[] = "child";
 	pid = posix_spawn(&child_pid, "child", NULL, NULL, argV, environ);
 
 		if(pid == 0){
